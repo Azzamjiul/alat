@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#151613"/>
+  <text x="72" y="84" fill="#f1efe7" font-family="Arial, sans-serif" font-size="28" font-weight="700">alat<tspan fill="#d7f96a">.</tspan></text>
+  <text x="72" y="252" fill="#f1efe7" font-family="Arial, sans-serif" font-size="92" font-weight="700">Small tools.</text>
+  <text x="72" y="350" fill="#d7f96a" font-family="Arial, sans-serif" font-size="92" font-weight="700">Useful by default.</text>
+  <text x="74" y="425" fill="#aaa9a0" font-family="Arial, sans-serif" font-size="24">A small collection of focused software.</text>
+  <text x="1060" y="560" fill="#85867c" font-family="monospace" font-size="18" text-anchor="end">alat.cc</text>
+</svg>

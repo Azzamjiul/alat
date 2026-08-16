@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#d7f96a"/>
+  <text x="72" y="84" fill="#555b3b" font-family="monospace" font-size="18">MACOS APP</text>
+  <g transform="translate(72 170)" fill="none" stroke="#151613" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 34V22h12M62 22h12v12M74 62v12H62M34 74H22V62" stroke-width="6"/>
+  </g>
+  <text x="196" y="252" fill="#151613" font-family="Arial, sans-serif" font-size="112" font-weight="700">X-Shot</text>
+  <text x="72" y="382" fill="#151613" font-family="Arial, sans-serif" font-size="52" font-weight="500">Capture. Mark up. Move on.</text>
+  <text x="74" y="445" fill="#555b3b" font-family="Arial, sans-serif" font-size="24">A focused screenshot tool for macOS.</text>
+  <text x="1060" y="560" fill="#555b3b" font-family="monospace" font-size="18" text-anchor="end">alat.cc/products/x-shot</text>
+</svg>
