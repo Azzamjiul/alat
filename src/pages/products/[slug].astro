@@ -1,6 +1,7 @@
 ---
 import { products } from '../../data/products'
 import FeatureIcon from '../../components/FeatureIcon.astro'
+import GoogleAnalytics from '../../components/GoogleAnalytics.astro'
 
 export function getStaticPaths() {
   return products.map((product) => ({
@@ -47,6 +48,7 @@ const ogImage = `https://alat.cc/og/${product.slug}.png`
       })}
     />
     <title>{product.name} — alat</title>
+    <GoogleAnalytics />
   </head>
   <body>
     <header class="site-header shell">
