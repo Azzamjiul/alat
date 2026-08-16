@@ -73,7 +73,7 @@ const ogImage = `https://alat.cc/og/${product.slug}.png`
         {product.kind === 'macOS app' && (
           <button class={`demo-stage demo-${product.slug}`} data-demo type="button" aria-label={`Play ${product.name} demo`}>
             <img class="demo-poster" src={`/demos/${product.slug}-poster.png`} alt={`${product.name} demo preview`} />
-            <img class="demo-gif" data-gif data-src={`/demos/${product.slug}-demo.gif`} alt={`${product.name} animated demo`} />
+            <video class="demo-video" data-video data-src={`/demos/${product.slug}-demo.mp4`} muted playsinline loop preload="none" aria-label={`${product.name} animated demo`}></video>
             <span class="demo-hint" aria-hidden="true"><span class="play-icon">▶</span></span>
           </button>
         )}
@@ -102,15 +102,21 @@ const ogImage = `https://alat.cc/og/${product.slug}.png`
 
 <script>
   document.querySelectorAll('[data-demo]').forEach((stage) => {
-    const gif = stage.querySelector('[data-gif]')
+    const video = stage.querySelector('[data-video]')
     stage.addEventListener('click', () => {
       if (stage.classList.contains('is-playing')) {
-        gif.removeAttribute('src')
+        video.pause()
+        video.removeAttribute('src')
+        video.load()
         stage.classList.remove('is-playing')
+        stage.setAttribute('aria-label', stage.getAttribute('aria-label').replace('Pause', 'Play'))
         return
       }
-      gif.src = gif.dataset.src
+      video.src = video.dataset.src
+      video.load()
+      video.play()
       stage.classList.add('is-playing')
+      stage.setAttribute('aria-label', stage.getAttribute('aria-label').replace('Play', 'Pause'))
     })
   })
 </script>
@@ -144,9 +150,9 @@ const ogImage = `https://alat.cc/og/${product.slug}.png`
   .secondary-link { border-bottom: 1px solid #85867c; color: #aaa9a0; font: 0.68rem 'DM Mono', monospace; padding-bottom: 8px; text-transform: uppercase; }
   .secondary-link:hover { border-color: #d7f96a; color: #d7f96a; }
   .demo-stage { appearance: none; background: #20211d; border: 1px solid #41443a; box-shadow: 0 24px 60px #0005; cursor: pointer; display: block; margin: 92px auto 0; max-width: 1120px; overflow: hidden; padding: 0; position: relative; text-align: initial; width: 100%; }
-  .demo-poster, .demo-gif { display: block; width: 100%; }
-  .demo-gif { inset: 0; opacity: 0; position: absolute; transition: opacity 400ms ease; }
-  .demo-stage.is-playing .demo-gif { opacity: 1; }
+  .demo-poster, .demo-video { display: block; width: 100%; }
+  .demo-video { height: 100%; inset: 0; object-fit: cover; opacity: 0; position: absolute; transition: opacity 400ms ease; }
+  .demo-stage.is-playing .demo-video { opacity: 1; }
   .demo-hint { align-items: center; background: #151613dd; border: 1px solid #d7f96a; border-radius: 50%; color: #d7f96a; display: flex; height: 64px; justify-content: center; left: 50%; pointer-events: none; position: absolute; top: 50%; transform: translate(-50%, -50%); transition: opacity 250ms ease, transform 250ms ease; width: 64px; }
   .play-icon { font-size: 1.15rem; margin-left: 4px; }
   .demo-stage.is-playing .demo-hint { opacity: 0; }
