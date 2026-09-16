@@ -1,0 +1,161 @@
+---
+const canonicalUrl = 'https://alat.cc/products/ujer/privacy-policy/'
+const contactEmail = 'azzam.jiul@gmail.com'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="description" content="Privacy Policy for Ujer." />
+    <meta property="og:site_name" content="alat" />
+    <meta property="og:title" content="Ujer Privacy Policy — alat" />
+    <meta property="og:description" content="Privacy Policy for Ujer." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <title>Ujer Privacy Policy — alat</title>
+  </head>
+  <body>
+    <header class="site-header shell">
+      <a class="wordmark" href="/" aria-label="alat home">alat<span>.</span></a>
+      <a class="back-link" href="/products/ujer/">← Ujer</a>
+    </header>
+
+    <main class="shell policy-page">
+      <p class="eyebrow"><span></span> Ujer</p>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: September 16, 2026</p>
+
+      <p class="lead">
+        Ujer is a dictation app for Android and macOS. This policy explains
+        what information Ujer handles when you use it.
+      </p>
+
+      <section>
+        <h2>What Ujer accesses</h2>
+        <p>
+          Ujer accesses your microphone only after you explicitly start a
+          dictation session and grant microphone permission. It does not record
+          continuously or in the background.
+        </p>
+      </section>
+
+      <section>
+        <h2>Audio and transcription</h2>
+        <p>
+          Ujer records temporary audio locally, then sends that audio to the
+          transcription endpoint you configure. Depending on your selected
+          provider, this is an OpenAI-compatible
+          <code>POST /audio/transcriptions</code> endpoint or Deepgram's
+          <code>/listen</code> endpoint. Ujer has no transcription backend of
+          its own.
+        </p>
+        <p>
+          The configured provider receives the audio and may process or retain
+          it under its own privacy policy and terms. If you use a self-hosted
+          endpoint, its operator controls that processing and retention.
+        </p>
+      </section>
+
+      <section>
+        <h2>API tokens and settings</h2>
+        <p>
+          Ujer uses the API token you provide to authenticate transcription
+          requests to your configured provider. The token, provider, base URL,
+          and model are stored locally on your device. On Android the token is
+          encrypted with Android Keystore-backed storage; on macOS it is stored
+          in the Keychain. Ujer does not send your token to an Ujer server.
+        </p>
+        <p>
+          Remote endpoints must use HTTPS, except for loopback endpoints used
+          for local development.
+        </p>
+      </section>
+
+      <section>
+        <h2>Transcripts and retention</h2>
+        <p>
+          Ujer does not maintain an account, cloud sync, voice history, or
+          transcript history. Its temporary local audio file is deleted after
+          transcription, cancellation, or an error. Transcription providers
+          may retain audio or transcripts according to their own policies.
+        </p>
+        <p>
+          Ujer places the transcript in the Android clipboard or inserts it
+          into the selected macOS text field. The operating system or another
+          app may retain clipboard or inserted text; that retention is outside
+          Ujer's control.
+        </p>
+      </section>
+
+      <section>
+        <h2>What Ujer does not collect</h2>
+        <p>
+          Ujer does not collect names, email addresses, contacts, location,
+          device identifiers, advertising data, or analytics. It has no Ujer
+          account system, advertisements, or tracking SDK.
+        </p>
+      </section>
+
+      <section>
+        <h2>Deleting your information</h2>
+        <p>
+          You can remove your locally stored API token by clearing it in Ujer's
+          settings or uninstalling the app. Temporary audio is deleted
+          automatically as described above. To request deletion of data held
+          by a transcription provider, contact that provider directly.
+        </p>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>
+          For privacy questions or requests, contact
+          <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="shell footer-note">
+      <p>Useful software, quietly made.</p>
+      <span>alat.cc / 2026</span>
+    </footer>
+  </body>
+</html>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+  :global(*) { box-sizing: border-box; }
+  :global(body) { background: #151613; color: #f1efe7; font-family: 'Manrope', sans-serif; margin: 0; }
+  :global(a) { color: inherit; }
+  :global(code) { color: #d7f96a; font: 0.9em 'DM Mono', monospace; }
+  .shell { margin: 0 auto; width: min(1120px, calc(100% - 48px)); }
+  .site-header { align-items: center; display: flex; justify-content: space-between; padding: 30px 0; }
+  .wordmark { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.08em; text-decoration: none; }
+  .wordmark span, .eyebrow span { color: #d7f96a; }
+  .back-link, .eyebrow, .updated, .footer-note span { color: #85867c; font: 0.68rem 'DM Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase; }
+  .back-link { text-decoration: none; }
+  .back-link:hover, a:hover { color: #d7f96a; }
+  .policy-page { max-width: 760px; padding: 72px 0 120px; }
+  .eyebrow { color: #d7f96a; }
+  .eyebrow span { display: inline-block; margin-right: 9px; }
+  h1 { font-size: clamp(3.5rem, 9vw, 7rem); letter-spacing: -0.1em; line-height: 0.9; margin: 28px 0 18px; }
+  .updated { margin: 0; }
+  .lead { color: #f1efe7; font-size: 1.15rem; line-height: 1.7; margin: 64px 0 0; }
+  section { border-top: 1px solid #373832; margin-top: 54px; padding-top: 18px; }
+  h2 { font-size: 1.35rem; letter-spacing: -0.05em; margin: 0 0 16px; }
+  p { color: #aaa9a0; font-size: 0.95rem; line-height: 1.75; margin: 0 0 16px; }
+  section p:last-child { margin-bottom: 0; }
+  section a { color: #d7f96a; }
+  .footer-note { align-items: end; border-top: 1px solid #373832; display: flex; justify-content: space-between; padding: 22px 0 34px; }
+  .footer-note p { color: #85867c; font-size: 0.78rem; margin: 0; }
+  @media (max-width: 700px) {
+    .shell { width: min(100% - 32px, 1120px); }
+    .policy-page { padding-top: 72px; }
+    .lead { margin-top: 48px; }
+    .footer-note { align-items: start; flex-direction: column; gap: 18px; }
+  }
+</style>
