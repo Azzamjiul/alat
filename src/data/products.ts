@@ -4,12 +4,12 @@ export const products = [
     name: 'Ujer',
     mark: 'U',
     iconSrc: '/icons/ujer-waveform-mic.png',
-    kind: 'macOS app',
+    kind: 'macOS + Android app',
     tagline: 'Speak once. Keep moving.',
     description:
-      'A small, native dictation tool for macOS. Turn your voice into text without leaving the flow of work.',
+      'A small, native dictation tool for macOS and Android. Turn your voice into text without leaving the flow of work.',
     features: [
-      { icon: 'spark', title: 'Native macOS', description: 'Feels at home on your Mac.' },
+      { icon: 'spark', title: 'Native apps', description: 'Built for macOS and Android.' },
       { icon: 'keyboard', title: 'One shortcut', description: 'Start dictating without breaking flow.' },
       { icon: 'wave', title: 'Voice to text', description: 'Turn spoken thoughts into usable text.' },
     ],

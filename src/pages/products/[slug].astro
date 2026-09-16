@@ -42,7 +42,7 @@ const ogImage = `https://alat.cc/og/${product.slug}.png`
         '@type': 'SoftwareApplication',
         name: product.name,
         applicationCategory: 'UtilitiesApplication',
-        operatingSystem: 'macOS',
+        operatingSystem: product.kind.replace(' app', ''),
         description: product.description,
         url: canonicalUrl,
       })}
@@ -68,12 +68,12 @@ const ogImage = `https://alat.cc/og/${product.slug}.png`
           <p class="description">{product.description}</p>
           <div class="actions">
             {product.downloadHref && <a class="primary-download" href={product.downloadHref} download><span>{product.downloadLabel}</span><b>↓</b></a>}
-            {product.kind !== 'macOS app' && <a class="secondary-link" href={product.appHref}>open {product.name} <b>↗</b></a>}
+            {!product.kind.includes('macOS') && <a class="secondary-link" href={product.appHref}>open {product.name} <b>↗</b></a>}
             {product.slug === 'ujer' && <a class="secondary-link" href="/products/ujer/privacy-policy/">privacy policy</a>}
           </div>
         </div>
 
-        {product.kind === 'macOS app' && (
+        {product.kind.includes('macOS') && (
           <button class={`demo-stage demo-${product.slug}`} data-demo type="button" aria-label={`Play ${product.name} demo`}>
             <img class="demo-poster" src={`/demos/${product.slug}-poster.png`} alt={`${product.name} demo preview`} />
             <video class="demo-video" data-video data-src={`/demos/${product.slug}-demo.mp4`} muted playsinline loop preload="none" aria-label={`${product.name} animated demo`}></video>
