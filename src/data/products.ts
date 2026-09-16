@@ -15,7 +15,7 @@ export const products = [
     ],
     appHref: 'https://ujer.alat.cc/',
     downloadHref: '/downloads/Ujer-0.0.1-arm64.dmg',
-    downloadLabel: 'Download for Apple silicon',
+    downloadLabel: 'Download for macOS',
   },
   {
     slug: 'x-shot',

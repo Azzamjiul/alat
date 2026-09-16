@@ -67,9 +67,12 @@ const ogImage = `https://alat.cc/og/${product.slug}.png`
           <p class="tagline">{product.tagline}</p>
           <p class="description">{product.description}</p>
           <div class="actions">
-            {product.downloadHref && <a class="primary-download" href={product.downloadHref} download><span>{product.downloadLabel}</span><b>↓</b></a>}
-            {!product.kind.includes('macOS') && <a class="secondary-link" href={product.appHref}>open {product.name} <b>↗</b></a>}
-            {product.slug === 'ujer' && <a class="secondary-link" href="/products/ujer/privacy-policy/">privacy policy</a>}
+            <div class="download-actions">
+              {product.downloadHref && <a class="primary-download" href={product.downloadHref} download><span class="download-label">{product.kind.includes('macOS') && <svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" /></svg>}<span>{product.downloadLabel}</span></span><b>↓</b></a>}
+              {product.slug === 'ujer' && <button class="primary-download android-download" type="button" disabled><span class="download-label"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z" /></svg><span>Download for Android</span></span><small>coming soon</small></button>}
+              {!product.kind.includes('macOS') && <a class="secondary-link" href={product.appHref}>open {product.name} <b>↗</b></a>}
+            </div>
+            {product.slug === 'ujer' && <a class="privacy-link" href="/products/ujer/privacy-policy/">privacy policy <b>↗</b></a>}
           </div>
         </div>
 
@@ -146,12 +149,21 @@ const ogImage = `https://alat.cc/og/${product.slug}.png`
   h1 { font-size: clamp(4rem, 10vw, 8.5rem); letter-spacing: -0.1em; line-height: 0.9; margin: 0; }
   .tagline { color: #d7f96a; font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: -0.06em; margin: 42px 0 18px; }
   .description { color: #aaa9a0; font-size: 1rem; line-height: 1.7; margin: 0 auto; max-width: 520px; }
-  .primary-download { align-items: center; background: #d7f96a; color: #151613; display: inline-flex; font: 0.75rem 'DM Mono', monospace; gap: 22px; justify-content: space-between; margin-top: 28px; min-width: 250px; padding: 16px 18px; text-transform: uppercase; }
+  .primary-download { align-items: center; background: #d7f96a; color: #151613; display: inline-flex; font: 0.75rem 'DM Mono', monospace; gap: 22px; justify-content: space-between; min-width: 250px; padding: 16px 18px; text-transform: uppercase; }
   .primary-download:hover { background: #e1ff82; }
   .primary-download b { font-size: 1rem; margin-left: 7px; }
-  .actions { align-items: center; display: flex; gap: 20px; justify-content: center; }
+  .download-label { align-items: center; display: inline-flex; gap: 12px; }
+  .platform-icon { flex: 0 0 auto; height: 19px; width: 19px; }
+  .android-download { background: #20211d; border: 1px solid #41443a; color: #85867c; cursor: not-allowed; }
+  .android-download small { color: #85867c; font: 0.58rem 'DM Mono', monospace; letter-spacing: 0.06em; }
+  .android-download:hover { background: #20211d; }
+  .actions { align-items: center; display: flex; flex-direction: column; gap: 18px; justify-content: center; margin-top: 28px; }
+  .download-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
   .secondary-link { border-bottom: 1px solid #85867c; color: #aaa9a0; font: 0.68rem 'DM Mono', monospace; padding-bottom: 8px; text-transform: uppercase; }
   .secondary-link:hover { border-color: #d7f96a; color: #d7f96a; }
+  .privacy-link { align-items: center; border: 1px solid #41443a; color: #aaa9a0; display: inline-flex; font: 0.68rem 'DM Mono', monospace; gap: 12px; padding: 12px 15px; text-transform: uppercase; transition: background 180ms ease, border-color 180ms ease, color 180ms ease; }
+  .privacy-link b { color: #d7f96a; font-size: 0.9rem; }
+  .privacy-link:hover { background: #20211d; border-color: #d7f96a; color: #d7f96a; }
   .demo-stage { appearance: none; background: #20211d; border: 1px solid #41443a; box-shadow: 0 24px 60px #0005; cursor: pointer; display: block; margin: 92px auto 0; max-width: 1120px; overflow: hidden; padding: 0; position: relative; text-align: initial; width: 100%; }
   .demo-poster, .demo-video { display: block; width: 100%; }
   .demo-video { height: 100%; inset: 0; object-fit: cover; opacity: 0; position: absolute; transition: opacity 400ms ease; }
@@ -176,7 +188,8 @@ const ogImage = `https://alat.cc/og/${product.slug}.png`
     .product-logo { height: 72px; width: 72px; }
     h1 { font-size: clamp(3.5rem, 18vw, 5.5rem); }
     .tagline { margin-top: 58px; }
-    .actions { align-items: start; flex-direction: column; gap: 18px; }
+    .download-actions { align-items: stretch; flex-direction: column; width: 100%; }
+    .primary-download { width: 100%; }
     .demo-stage { margin-top: 64px; }
     .details { margin-top: 90px; }
     ul { grid-template-columns: 1fr; }
