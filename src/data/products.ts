@@ -14,7 +14,7 @@ export const products = [
       { icon: 'wave', title: 'Voice to text', description: 'Turn spoken thoughts into usable text.' },
     ],
     appHref: 'https://ujer.alat.cc/',
-    downloadHref: '/downloads/Ujer-0.0.1-arm64.dmg',
+    downloadHref: 'https://github.com/Azzamjiul/ujer-releases/releases/latest/download/Ujer-macOS-arm64.dmg',
     downloadLabel: 'Download for macOS',
   },
   {
