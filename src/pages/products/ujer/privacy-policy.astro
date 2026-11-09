@@ -27,7 +27,7 @@ const contactEmail = 'azzam@alat.cc'
     <main class="shell policy-page">
       <p class="eyebrow"><span></span> Ujer</p>
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: September 16, 2026</p>
+      <p class="updated">Last updated: November 9, 2026</p>
 
       <p class="lead">
         Ujer is a dictation app for Android and macOS. This policy explains
@@ -35,79 +35,59 @@ const contactEmail = 'azzam@alat.cc'
       </p>
 
       <section>
-        <h2>What Ujer accesses</h2>
-        <p>
-          Ujer accesses your microphone only after you explicitly start a
-          dictation session and grant microphone permission. It does not record
-          continuously or in the background.
-        </p>
+        <h2>Microphone and keyboard</h2>
+        <p>Ujer accesses the microphone after you grant permission and start recording.
+          The Android keyboard sends text you type or dictate to the app and text field
+          you are using. Dictation is disabled in password and private fields.</p>
       </section>
 
       <section>
         <h2>Audio and transcription</h2>
-        <p>
-          Ujer records temporary audio locally, then sends that audio to the
-          transcription endpoint you configure. Depending on your selected
-          provider, this is an OpenAI-compatible
-          <code>POST /audio/transcriptions</code> endpoint or Deepgram's
-          <code>/listen</code> endpoint. Ujer has no transcription backend of
-          its own.
-        </p>
-        <p>
-          The configured provider receives the audio and may process or retain
-          it under its own privacy policy and terms. If you use a self-hosted
-          endpoint, its operator controls that processing and retention.
-        </p>
+        <p>Ujer records audio on your device and sends it for transcription when you
+          stop recording. With your own API key, audio is sent to the provider and
+          endpoint you configure. That provider's terms and privacy policy govern
+          its processing and retention.</p>
+        <p>With Ujer Pro, audio is sent to Alat Auth and an AI service provider for
+          transcription. If you enable the optional cleanup feature, the transcript
+          is also sent for AI processing. Your selected language and personal
+          dictionary terms may be sent as transcription hints. Service providers
+          process this information to provide the requested feature.</p>
       </section>
 
       <section>
-        <h2>API tokens and settings</h2>
-        <p>
-          Ujer uses the API token you provide to authenticate transcription
-          requests to your configured provider. The token, provider, base URL,
-          and model are stored locally on your device. On Android the token is
-          encrypted with Android Keystore-backed storage; on macOS it is stored
-          in the Keychain. Ujer does not send your token to an Ujer server.
-        </p>
-        <p>
-          Remote endpoints must use HTTPS, except for loopback endpoints used
-          for local development.
-        </p>
+        <h2>Account, settings and usage</h2>
+        <p>Ujer Pro uses Google sign-in and an Alat Auth account. We receive account
+          information such as your email address and Google account identifier to
+          authenticate you. Account, session, credit and usage records support
+          access, billing, security and service operation.</p>
+        <p>If you use your own API key, Ujer stores your provider settings and key
+          on your device and sends the key to your configured provider to authorize
+          requests. Android uses Keystore-backed storage for secrets; macOS uses
+          Keychain. The provider and model you choose determine where your audio goes.</p>
       </section>
 
       <section>
-        <h2>Transcripts and retention</h2>
-        <p>
-          Ujer does not maintain an account, cloud sync, voice history, or
-          transcript history. Its temporary local audio file is deleted after
-          transcription, cancellation, or an error. Transcription providers
-          may retain audio or transcripts according to their own policies.
-        </p>
-        <p>
-          Ujer places the transcript in the Android clipboard or inserts it
-          into the selected macOS text field. The operating system or another
-          app may retain clipboard or inserted text; that retention is outside
-          Ujer's control.
-        </p>
+        <h2>Local data and retention</h2>
+        <p>On Android, Ujer can keep transcripts and unsuccessful or unconfirmed
+          recordings on your device. Successful recordings are removed from local
+          app storage; saved results and failed recordings remain until you delete
+          them. On macOS, recordings and related metadata can be stored locally;
+          files at least seven days old are removed when the recording store is
+          next maintained. Text inserted into another app or copied to the clipboard
+          is subject to that app's or operating system's handling.</p>
+        <p>Account and usage records are retained for operating the service and
+          managing credits. AI providers may retain information under their own
+          policies. Contact us for details about retention or deletion of your data.</p>
       </section>
 
-      <section>
-        <h2>What Ujer does not collect</h2>
-        <p>
-          Ujer does not collect names, email addresses, contacts, location,
-          device identifiers, advertising data, or analytics. It has no Ujer
-          account system, advertisements, or tracking SDK.
-        </p>
-      </section>
-
-      <section>
-        <h2>Deleting your information</h2>
-        <p>
-          You can remove your locally stored API token by clearing it in Ujer's
-          settings or uninstalling the app. Temporary audio is deleted
-          automatically as described above. To request deletion of data held
-          by a transcription provider, contact that provider directly.
-        </p>
+      <section id="account-deletion">
+        <h2>Request account and data deletion</h2>
+        <p>To request deletion of your Ujer Pro account and associated data, email
+          <a href={`mailto:${contactEmail}?subject=Ujer%20account%20deletion%20request`}>{contactEmail}</a>
+          from the address associated with your account. We may need to verify your
+          identity before processing the request. You can also delete locally saved
+          results in Ujer or clear the app's data. For data held by a provider you
+          configured with your own API key, contact that provider directly.</p>
       </section>
 
       <section>
